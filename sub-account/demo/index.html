@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="module">
+        import '../sub-account.js';
+    </script>
+    <title>SubAccount</title>
+</head>
+<body>
+<div>
+<sub-account></sub-account>
+
+</div>
+
+<button>Agregar</button>
+<script>
+  const subaccount = document.querySelector('sub-account');
+  subaccount.subaccountData = {
+    razonSocial: 'Grupo Slim',
+    rfc: 'GS2892',
+    estatus: true
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="module">
+        import '../sub-account-register.js';
+    </script>
+    <title>SubAccountRegister</title>
+</head>
+<body>
+
+    <div >
+
+        <sub-account-register></sub-account-register>
+    </div>
+    <script>
+      const register = document.querySelector('sub-account-register');
+      register.addEventListener('subaccount-register', event => {
+        console.table(event.detail);
+      })
+    </script>
+</body>
+</html>
