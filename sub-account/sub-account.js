@@ -16,17 +16,18 @@ class SubAccount extends LitElement {
   constructor() {
     super();
     this.subaccountData = {
-      razonSocial: '',
-      rfc: '',
+      noSubcuenta: '',
+      nombre: '',
       estatus: ''
     };
   }
 
   render() {
     return html`
-       <td>${this.subaccountData.razonSocial}</td>
-       <td>${this.subaccountData.rfc}</td>
-       <td>${this.subaccountData.estatus}</td>
+       <td>${this.subaccountData.noSubcuenta}</td>
+       <td>${this.subaccountData.nombre}</td>
+       <td>${this.subaccountData.estatus === 'true'? html`<iron-icon icon="vaadin:check-circle-o"></iron-icon>` : html`<iron-icon icon="vaadin:close-circle-o"></iron-icon>`}</td>
+       <td><iron-icon icon="vaadin:vaadin:edit"></iron-icon></td>
       `;
     }
 }

@@ -4,7 +4,7 @@ import style from './sub-account-register-styles.js';
 class SubAccountRegister extends LitElement {
   static get properties() {
     return {
-      hello: { type: String }
+      id: {type: Number}
     };
   }
 
@@ -14,19 +14,18 @@ class SubAccountRegister extends LitElement {
 
   constructor() {
     super();
-    this.hello = 'Hello';
   }
 
   render() {
     return html`
-        <h3>Agregar Razón Social</h3>
+        <h3>Agregar Subcuenta</h3>
         <div>
-        <label for="razon">Razón Social :</label>
-         <input  id="razon" type="text">
-         <label for="rfc">RFC :</label>
-          <input id="rfc" type="text">
+
+         <label for="name">Nombre :</label>
+          <input id="name" type="text">
          <label for="status">Estatus :</label>
           <select id="status">
+
             <option value="true">Activo</option>
             <option value="false">Inactivo</option>
            </select>
@@ -36,20 +35,20 @@ class SubAccountRegister extends LitElement {
       `;
     }
   sendForm(){
-    const razon = this.shadowRoot.querySelector('#razon');
-    const rfc = this.shadowRoot.querySelector('#rfc');
+    const name = this.shadowRoot.querySelector('#name');
     const status = this.shadowRoot.querySelector('#status');
 
     this.dispatchEvent(new CustomEvent('subaccount-register',{
       detail: {
-        razonSocial: razon.value,
-        rfc: rfc.value,
+        noSubcuenta: '',
+        name: name.value,
         estatus: status.value
       }
     }))
 
-    razon.value = '';
-    rfc.value = '';
+    noSubcuenta.value = '';
+    name.value = '';
+    status.value = '';
   }
 
 
