@@ -24,25 +24,13 @@ class SubAccount extends LitElement {
 
   render() {
     return html`
-<table>
-    <thead>
 
-    <tr>
-      <th id="subaccount">#Subcuenta</th>
-      <th id="rfc">RFC</th>
-      <th id="status">Estatus</th>
-      <th id="actions">Acciones</th>
-    </tr>
-
-</thead>
-<tbody>
     <tr>
        <td>${this.subaccountData.razonSocial}</td>
        <td>${this.subaccountData.rfc}</td>
        <td>${this.subaccountData.estatus}</td>
     </tr>
-    </tbody>
-</table>
+
 
 
 
