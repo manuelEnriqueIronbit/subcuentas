@@ -24,18 +24,9 @@ class SubAccount extends LitElement {
 
   render() {
     return html`
-
-    <tr>
        <td>${this.subaccountData.razonSocial}</td>
        <td>${this.subaccountData.rfc}</td>
        <td>${this.subaccountData.estatus}</td>
-    </tr>
-
-
-
-
-
-
       `;
     }
 }

@@ -2,6 +2,8 @@ import { html, LitElement } from 'lit-element';
 import style from './sub-account-view-styles.js';
 import '@catsys/sub-account';
 import '@catsys/sub-account-register';
+import '@polymer/paper-dialog';
+import  '@vaadin/vaadin-icons';
 
 class SubAccountView extends LitElement {
   static get properties() {
@@ -22,10 +24,16 @@ class SubAccountView extends LitElement {
   render() {
     return html`
           <div>
-            <div class="sub-account-register">
-                <sub-account-register @subaccount-register="${this.insertTable}"></sub-account-register>
+          <paper-dialog id="dialog" modal no-cancel-on-outside-click="false">
+          <paper-dialog-scrollable>
+          <div class="sub-account-register">
+                <sub-account-register @subaccount-register="${this.insertTable}" ></sub-account-register>
+                <iron-icon icon="vaadin:close-circle" dialog-confirm autofocus></iron-icon>
             </div>
-            <div class="sub-account-table">
+</paper-dialog-scrollable>
+
+            </paper-dialog>
+             <div class="sub-account-table">
               <table>
                 <thead>
                   <tr>
@@ -36,10 +44,12 @@ class SubAccountView extends LitElement {
                   </tr>
                  </thead>
                  <tbody>
-                    ${this.subaccountList.map(entry => html`<sub-account .subaccountData="${entry}"></sub-account>`)}
+
+                    ${this.subaccountList.map(entry => html`<tr><sub-account .subaccountData="${entry}"></sub-account></tr>`)}
                  </tbody>
 
               </table>
+              <button @click="${this.openDialog}">Agregar</button>
             </div>
           </div>
       `;
@@ -47,6 +57,10 @@ class SubAccountView extends LitElement {
 
   insertTable(event){
     this.subaccountList = [...this.subaccountList,event.detail]
+  }
+
+  openDialog(){
+    this.shadowRoot.querySelector('#dialog').open();
   }
 }
 
