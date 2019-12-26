@@ -30,7 +30,7 @@ class SubAccountRegister extends LitElement {
             <option value="true">Activo</option>
             <option value="false">Inactivo</option>
            </select>
-          <button @click="${this.sendForm}">Send</button>
+          <button @click="${this.sendForm}" dialog-confirm autofocus>Send</button>
         </div>
 
       `;
