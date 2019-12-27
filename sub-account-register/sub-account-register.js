@@ -4,7 +4,7 @@ import style from './sub-account-register-styles.js';
 class SubAccountRegister extends LitElement {
   static get properties() {
     return {
-      id: {type: Number}
+
     };
   }
 
@@ -14,42 +14,56 @@ class SubAccountRegister extends LitElement {
 
   constructor() {
     super();
+    this.id = 0;
   }
 
   render() {
     return html`
-        <h3>Agregar Subcuenta</h3>
-        <div>
+<iron-icon icon="vaadin:close-circle" dialog-confirm autofocus></iron-icon>
+        <h2>Agregar Subcuenta</h2>
+
+         <div>
+
 
          <label for="name">Nombre :</label>
           <input id="name" type="text">
+          </div>
+          <div>
+
+
          <label for="status">Estatus :</label>
           <select id="status">
 
             <option value="true">Activo</option>
             <option value="false">Inactivo</option>
            </select>
+           </div>
           <button @click="${this.sendForm}" dialog-confirm autofocus>Send</button>
-        </div>
+
 
       `;
     }
+
+
+
   sendForm(){
     const name = this.shadowRoot.querySelector('#name');
     const status = this.shadowRoot.querySelector('#status');
-
+    const id = '_' + Math.random().toString(36).substr(2, 9);
     this.dispatchEvent(new CustomEvent('subaccount-register',{
       detail: {
+        id: id,
         noSubcuenta: '',
         name: name.value,
         estatus: status.value
       }
     }))
 
-    noSubcuenta.value = '';
     name.value = '';
     status.value = '';
+    this.id = this.id+1;
   }
+
 
 
 }
